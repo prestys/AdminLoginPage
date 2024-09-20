@@ -1,1 +1,7 @@
-﻿
+﻿.login-layout-wrapper {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(60deg, rgba(69,69,69,1) 0%, rgba(13,29,83,1) 95%, rgba(19,0,87,1) 100%);
+}
