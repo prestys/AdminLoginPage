@@ -1,7 +1,35 @@
 ﻿@page "/admin/login"
 @inherits LoginModel
 @layout LoginLayout
+@using Radzen
+@using Radzen.Blazor
 
-<div>
-    <h1>hi</h1>
+<div class="login-block">
+    <RadzenCard class="login-card">
+        <div class="login-card-image">
+            <img src="images/pidbw.png" />
+        </div>
+
+        <div class="login-card-inputs">
+            <div class="login-card-input">
+                <label>EMAIL<span style="color:#d80915;">*</span></label>
+                <RadzenTextBox Placeholder="Enter email here..."/>
+            </div>
+
+            <div class="login-card-input" style="margin: 16px 0 0 0;">
+                <label>PASSWORD<span style="color:#d80915;">*</span></label>
+                <RadzenTextBox Placeholder="Enter email here..." />
+            </div>
+
+            <div class="login-card-signin">
+                <RadzenButton Text="Login" ButtonStyle="ButtonStyle.Success"/>
+            </div>
+
+            <div class="login-card-colorscheme">
+                <div class="color-swatch" style="background-color: #d80915; border-radius: 0 0 0 5px;" />
+                <div class="color-swatch" style="background-color: #f99311;"/>
+                <div class="color-swatch" style="background-color: #0d1d53; border-radius: 0 0 5px 0;" />
+            </div>
+        </div>
+    </RadzenCard>
 </div>
