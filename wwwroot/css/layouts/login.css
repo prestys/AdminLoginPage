@@ -78,7 +78,7 @@
     background-color: rgba(216,9,21, .5);
     border-radius: 5px;
     padding: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--paragon-boxshadow);
 }
 
 .login-block-invalid h5{

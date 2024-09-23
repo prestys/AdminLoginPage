@@ -4,6 +4,11 @@
       "name": "Home",
       "path": "/",
       "icon": "home"
+    },
+    {
+      "name": "Test",
+      "path": "/test",
+      "icon": "download"
     }
   ]
 }

@@ -5,6 +5,7 @@
     --paragon-yellow: #f99311;
     --paragon-blue: #0d1d53;
     --paragon-grey: #454545;
+    --paragon-boxshadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
 }
 
 html, body {

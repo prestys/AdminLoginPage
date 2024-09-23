@@ -1,10 +1,22 @@
 ﻿@inherits NavbarComponent
+@inject NavigationManager NavigationManager
 
 @if(Navlinks != null){
-<div class="navbar-wrapper">
-    @foreach (var __navlink in Navlinks)
-    {
-        <p>@(__navlink.Name)</p>
-    }
+<div class="navbar-wrapper-inner">
+    <div class="navbar-content">
+        @foreach (var __navlink in Navlinks)
+        {
+            <div class="navbar-navlink" @onclick="@(() => NavigationManager.NavigateTo($"{__navlink.Path}"))">
+                <p>@(__navlink.Name)</p>
+                <RadzenIcon Icon="@(__navlink.Icon)"/>
+            </div>
+        }
+
+        <div class="navbar-card-colorscheme">
+            <div class="color-swatch" style="background-color: var(--paragon-blue); border-radius: 0 0 0 5px;" />
+            <div class="color-swatch" style="background-color: var(--paragon-red);" />
+            <div class="color-swatch" style="background-color: var(--paragon-yellow); border-radius: 0 0 5px 0;" />
+        </div>
+    </div>
 </div>
 }
