@@ -17,12 +17,12 @@
 
         <div class="login-card-inputs">
             <div class="login-card-input">
-                <label>EMAIL<span style="color:#d80915;">*</span></label>
+                <label>EMAIL<span style="color: var(--paragon-red);">*</span></label>
                 <RadzenTextBox Placeholder="Enter email here..." @bind-Value="@(Email)"/>
             </div>
 
             <div class="login-card-input" style="margin: 16px 0 0 0;">
-                <label>PASSWORD<span style="color:#d80915;">*</span></label>
+                <label>PASSWORD<span style="color: var(--paragon-red);">*</span></label>
                 <RadzenPassword Placeholder="Enter email here..." @bind-Value="@(Password)"/>
             </div>
 
@@ -31,9 +31,9 @@
             </div>
 
             <div class="login-card-colorscheme">
-                <div class="color-swatch" style="background-color: #d80915; border-radius: 0 0 0 5px;" />
-                <div class="color-swatch" style="background-color: #f99311;"/>
-                <div class="color-swatch" style="background-color: #0d1d53; border-radius: 0 0 5px 0;" />
+                <div class="color-swatch" style="background-color: var(--paragon-red); border-radius: 0 0 0 5px;" />
+                <div class="color-swatch" style="background-color: var(--paragon-yellow);"/>
+                <div class="color-swatch" style="background-color: var(--paragon-blue); border-radius: 0 0 5px 0;" />
             </div>
         </div>
     </RadzenCard>

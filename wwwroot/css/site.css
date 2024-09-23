@@ -1,5 +1,12 @@
 @import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 
+:root {
+    --paragon-red: #d80915;
+    --paragon-yellow: #f99311;
+    --paragon-blue: #0d1d53;
+    --paragon-grey: #454545;
+}
+
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     color: #fff;

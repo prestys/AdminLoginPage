@@ -3,7 +3,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(60deg, rgba(69,69,69,1) 70%, rgba(216,9,21, 1) 60%, rgba(13,29,83, 1) 100%);
+    background: linear-gradient(60deg, var(--paragon-grey) 70%, var(--paragon-red) 60%, var(--paragon-yellow) 100%);
 }
 
 .login-block {
