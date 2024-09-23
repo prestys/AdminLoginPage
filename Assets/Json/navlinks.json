@@ -2,12 +2,8 @@
   "navlinks": [
     {
       "name": "Home",
-      "icon": "home",
-      "path": "/"
-    },
-    {
-      "name": "tEST",
-      "icon": "test",
-      "path": "/test"
+      "path": "/",
+      "icon": "home"
     }
   ]
+}

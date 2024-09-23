@@ -1,1 +1,10 @@
 ﻿@inherits NavbarComponent
+
+@if(Navlinks != null){
+<div class="navbar-wrapper">
+    @foreach (var __navlink in Navlinks)
+    {
+        <p>@(__navlink.Name)</p>
+    }
+</div>
+}
