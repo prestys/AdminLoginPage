@@ -1,0 +1,40 @@
+﻿@page "/admin/login"
+@inherits LoginModel
+@layout LoginLayout
+@using Radzen
+@using Radzen.Blazor
+
+<div class="login-block">
+    <RadzenContent class="login-block-invalid" Visible="@(Authenticated)">
+        <h5>Invalid Details!</h5>
+        <p>Please ensure both fields are filled and the credentials match an account record!</p>
+    </RadzenContent>
+
+    <RadzenCard class="login-card">
+        <div class="login-card-image">
+            <img src="images/pidbw.png" />
+        </div>
+
+        <div class="login-card-inputs">
+            <div class="login-card-input">
+                <label>EMAIL<span style="color: var(--paragon-red);">*</span></label>
+                <RadzenTextBox Placeholder="Enter email here..." @bind-Value="@(Email)"/>
+            </div>
+
+            <div class="login-card-input" style="margin: 16px 0 0 0;">
+                <label>PASSWORD<span style="color: var(--paragon-red);">*</span></label>
+                <RadzenPassword Placeholder="Enter email here..." @bind-Value="@(Password)"/>
+            </div>
+
+            <div class="login-card-signin">
+                <RadzenButton Text="Login" ButtonStyle="ButtonStyle.Success" Click="@(LoginRoutine)"/>
+            </div>
+
+            <div class="login-card-colorscheme">
+                <div class="color-swatch" style="background-color: var(--paragon-red); border-radius: 0 0 0 5px;" />
+                <div class="color-swatch" style="background-color: var(--paragon-yellow);"/>
+                <div class="color-swatch" style="background-color: var(--paragon-blue); border-radius: 0 0 5px 0;" />
+            </div>
+        </div>
+    </RadzenCard>
+</div>
