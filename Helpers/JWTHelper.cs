@@ -7,6 +7,11 @@ namespace ParagonID.InternalSystem.Helpers
 {
     public class JWTHelper
     {
+        /// <summary>
+        /// This is the function that creates the JWT.
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
         public string GenerateJwtToken(string userId)
         {
             string jwtSecretToken = Environment.GetEnvironmentVariable("JwtSecretToken")!;

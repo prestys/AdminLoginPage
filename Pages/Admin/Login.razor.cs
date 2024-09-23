@@ -21,6 +21,9 @@ namespace ParagonID.InternalSystem.Pages.Admin
 
         public bool Authenticated = false;
 
+        /// <summary>
+        /// Executes the routine for logging in.
+        /// </summary>
         public void LoginRoutine()
         {
             bool __credentialValidity = CredentialValidation();
@@ -34,6 +37,10 @@ namespace ParagonID.InternalSystem.Pages.Admin
             Authenticated = true;
         }
 
+        /// <summary>
+        /// This validates the credentials that are entered.
+        /// </summary>
+        /// <returns></returns>
         public bool CredentialValidation()
         {
             if (string.IsNullOrWhiteSpace(Email) || string.IsNullOrWhiteSpace(Password))
@@ -44,6 +51,9 @@ namespace ParagonID.InternalSystem.Pages.Admin
             return true;
         }
 
+        /// <summary>
+        /// This will execute the JS code that creates the JWT with the relevant credentials.
+        /// </summary>
         private async void CreateJWT()
         {
             string __jwt = JWTHelper.GenerateJwtToken("REPLACE_THIS_WITH_USER_ID");
