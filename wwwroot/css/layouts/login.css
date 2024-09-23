@@ -90,3 +90,13 @@
     margin: 0;
     font-size: 0.8rem;
 }
+
+@media (max-width: 991px){
+    .login-layout-wrapper {
+        background: var(--paragon-grey);
+    }
+
+    .login-block{
+        width: 95%;
+    }
+}
