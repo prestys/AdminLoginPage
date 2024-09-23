@@ -9,17 +9,21 @@ namespace ParagonID.InternalSystem.Pages.Admin
 {
     public class LoginModel : ComponentBase
     {
-        // Injections
+        // [Injections]
         [Inject] NotificationService NotificationService { get; set; }
         [Inject] NavigationManager NavigationManager { get; set; }
         [Inject] JWTHelper JWTHelper { get; set; }
         [Inject] IJSRuntime JSRuntime { get; set; }
         //
 
+        // [Properties]
         public string Email { get; set; }
         public string Password { get; set; }
+        //
 
+        // [Fields]
         public bool Authenticated = false;
+        //
 
         /// <summary>
         /// Executes the routine for logging in.
