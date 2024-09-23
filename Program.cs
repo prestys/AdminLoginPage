@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
+using ParagonID.InternalSystem.Helpers;
+using Radzen;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +9,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddRazorPages();
+builder.Services.AddScoped<NotificationService>();
+builder.Services.AddSingleton<JWTHelper>();
 builder.Services.AddSingleton<Radzen.ThemeService>();
 
 var app = builder.Build();

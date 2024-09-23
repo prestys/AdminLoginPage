@@ -5,6 +5,11 @@
 @using Radzen.Blazor
 
 <div class="login-block">
+    <RadzenContent class="login-block-invalid" Visible="@(Authenticated)">
+        <h5>Invalid Details!</h5>
+        <p>Please ensure both fields are filled and the credentials match an account record!</p>
+    </RadzenContent>
+
     <RadzenCard class="login-card">
         <div class="login-card-image">
             <img src="images/pidbw.png" />
@@ -13,16 +18,16 @@
         <div class="login-card-inputs">
             <div class="login-card-input">
                 <label>EMAIL<span style="color:#d80915;">*</span></label>
-                <RadzenTextBox Placeholder="Enter email here..."/>
+                <RadzenTextBox Placeholder="Enter email here..." @bind-Value="@(Email)"/>
             </div>
 
             <div class="login-card-input" style="margin: 16px 0 0 0;">
                 <label>PASSWORD<span style="color:#d80915;">*</span></label>
-                <RadzenTextBox Placeholder="Enter email here..." />
+                <RadzenPassword Placeholder="Enter email here..." @bind-Value="@(Password)"/>
             </div>
 
             <div class="login-card-signin">
-                <RadzenButton Text="Login" ButtonStyle="ButtonStyle.Success"/>
+                <RadzenButton Text="Login" ButtonStyle="ButtonStyle.Success" Click="@(LoginRoutine)"/>
             </div>
 
             <div class="login-card-colorscheme">

@@ -71,3 +71,22 @@
     height: 8px;
     width: 33.33333%;
 }
+
+.login-block-invalid {
+    position: absolute;
+    bottom: calc(100% + 16px);
+    background-color: rgba(216,9,21, .5);
+    border-radius: 5px;
+    padding: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.login-block-invalid h5{
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.login-block-invalid p {
+    margin: 0;
+    font-size: 0.8rem;
+}
