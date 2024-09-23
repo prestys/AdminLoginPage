@@ -13,16 +13,16 @@
     padding: 0;
 }
 
-.navbar-content {
-
-}
-
-.navbar-card-colorscheme {
-    position: absolute;
-    display: flex;
+.navbar-wrapper::after {
+    content: "";
+    height: 5px;
     width: 100%;
+    position: absolute;
     left: 0;
     bottom: 0;
+    background: linear-gradient(90deg, var(--paragon-blue) 33%, var(--paragon-red) 66%, var(--paragon-yellow) 100%);
+    border-radius: 0 0 2px 2px;
+    transition: 500ms;
 }
 
 .navbar-navlink {
