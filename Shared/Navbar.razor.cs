@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
 using ParagonID.InternalSystem.Helpers;
 using ParagonID.InternalSystem.Models;
 
@@ -9,6 +10,7 @@ namespace ParagonID.InternalSystem.Shared
         // [Injections]
         [Inject] public NavlinksHelper NavlinksHelper { get; set; }
         [Inject] public NavigationManager NavigationManager { get; set; }
+        [Inject] public IJSRuntime JSRuntime { get; set; }
         //
 
         // [Properties]
@@ -33,6 +35,12 @@ namespace ParagonID.InternalSystem.Shared
         {
             var __uri = new Uri(NavigationManager.Uri);
             ActivePath = __uri.LocalPath;
+        }
+
+        public async void Logout()
+        {
+            await JSRuntime.InvokeVoidAsync("deleteJwtCookie");
+            NavigationManager.NavigateTo("/admin/login");
         }
     }
 }
