@@ -6,7 +6,7 @@
     <div class="navbar-content">
         @foreach (var __navlink in Navlinks)
         {
-            <div class="navbar-navlink" @onclick="@(() => NavigationManager.NavigateTo($"{__navlink.Path}"))">
+            <div class="@(ActivePath == __navlink.Path ? "navbar-navlink navbar-navlink-active" : "navbar-navlink")" @onclick="@(() => NavigationManager.NavigateTo($"{__navlink.Path}"))">
                 <p>@(__navlink.Name)</p>
                 <RadzenIcon Icon="@(__navlink.Icon)"/>
             </div>

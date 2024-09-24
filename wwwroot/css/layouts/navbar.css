@@ -43,6 +43,18 @@
     cursor: pointer;
 }
 
+.navbar-navlink-active::after {
+    content: "";
+    height: 5px;
+    width: 100% !important;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, var(--paragon-blue) 33%, var(--paragon-red) 66%, var(--paragon-yellow) 100%);
+    border-radius: 0 0 2px 2px;
+    transition: 500ms;
+}
+
 .navbar-navlink::after {
     content: "";
     height: 5px;
