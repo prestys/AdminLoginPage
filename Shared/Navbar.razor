@@ -2,7 +2,7 @@
 @inject NavigationManager NavigationManager
 
 @if(Navlinks != null){
-<div class="navbar-wrapper-inner">
+<div class="navbar-wrapper-inner" style="position: relative; z-index: 99;">
     <div class="navbar-content">
         @foreach (var __navlink in Navlinks)
         {
@@ -12,5 +12,16 @@
             </div>
         }
     </div>
+
+    <div class="navbar-account">
+        <div class="navbar-navlink-account">
+            <p>ACCOUNT_NAME</p>
+        </div>
+
+        <div class="navbar-navlink-logout">
+            <RadzenIcon Icon="logout"/>
+        </div>
+    </div>
 </div>
+<div class="navbar-wrapper-image"></div>
 }

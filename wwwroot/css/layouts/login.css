@@ -23,6 +23,7 @@
     left: -50px;
     bottom: -50px;
     z-index: -1;
+    border-radius: 0 0 0 5px;
 }
 
 .login-block::after {

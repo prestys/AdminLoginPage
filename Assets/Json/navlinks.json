@@ -6,9 +6,9 @@
       "icon": "home"
     },
     {
-      "name": "Test",
-      "path": "/test",
-      "icon": "download"
+      "name": "HMI",
+      "path": "/hmi",
+      "icon": "science"
     }
   ]
 }
