@@ -10,10 +10,11 @@ namespace ParagonID.InternalSystem.Pages.Admin
     public class LoginModel : ComponentBase
     {
         // [Injections]
-        [Inject] NotificationService NotificationService { get; set; }
-        [Inject] NavigationManager NavigationManager { get; set; }
-        [Inject] JWTHelper JWTHelper { get; set; }
-        [Inject] IJSRuntime JSRuntime { get; set; }
+        [Inject] public NotificationService NotificationService { get; set; }
+        [Inject] public NavigationManager NavigationManager { get; set; }
+        [Inject] public JWTHelper JWTHelper { get; set; }
+        [Inject] public IJSRuntime JSRuntime { get; set; }
+        [Inject] public AuthorisationHelper AuthorisationHelper { get; set; }
         //
 
         // [Properties]
@@ -24,6 +25,40 @@ namespace ParagonID.InternalSystem.Pages.Admin
         // [Fields]
         public bool Authenticated = false;
         //
+
+        protected override void OnAfterRender(bool firstRender)
+        {
+            if (firstRender)
+            {
+                AccountAuthorisation();
+            }
+
+            base.OnAfterRender(firstRender);
+        }
+
+        /// <summary>
+        /// Handles the navigation if the jwt was to fail.
+        /// </summary>
+        private async void AccountAuthorisation()
+        {
+            string __jwt = await JSRuntime.InvokeAsync<string>("getJwtCookie");
+            bool __authResult = await AuthorisationHelper.IsAuthorized(__jwt);
+
+            if (__authResult)
+            {
+                var __uri = new Uri(NavigationManager.Uri);
+                string __path = __uri.LocalPath;
+
+                if (__path.Contains("login"))
+                {
+                    NavigationManager.NavigateTo("/");
+                }
+            }
+            else
+            {
+                NavigationManager.NavigateTo("/admin/login");
+            }
+        }
 
         /// <summary>
         /// Executes the routine for logging in.
