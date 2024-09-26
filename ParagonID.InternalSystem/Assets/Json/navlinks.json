@@ -9,6 +9,11 @@
       "name": "HMI",
       "path": "/hmi",
       "icon": "science"
+    },
+    {
+      "name": "Presses",
+      "path": "/presses",
+      "icon": "precision_manufacturing"
     }
   ]
 }

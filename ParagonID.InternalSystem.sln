@@ -5,7 +5,7 @@ VisualStudioVersion = 17.10.34916.146
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ParagonID.InternalSystem", "ParagonID.InternalSystem\ParagonID.InternalSystem.csproj", "{10B4C8CF-8649-4789-A4BA-4A6485B9C3C5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParagonID.Data", "ParagonID.Data\ParagonID.Data.csproj", "{803667A7-D1BD-447E-BF8B-D1C1C3478CFB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ParagonID.Data", "ParagonID.Data\ParagonID.Data.csproj", "{803667A7-D1BD-447E-BF8B-D1C1C3478CFB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
