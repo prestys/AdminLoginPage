@@ -13,6 +13,7 @@
     <link href="css/site.css" rel="stylesheet" />
     <link href="ParagonID.InternalSystem.styles.css" rel="stylesheet" />
     <link href="css/layouts/login.css" rel="stylesheet"/>
+    <link href="css/layouts/navbar.css" rel="stylesheet"/>
     <component type="typeof(HeadOutlet)" render-mode="ServerPrerendered" />
     <component type="typeof(RadzenTheme)" render-mode="ServerPrerendered" param-Theme="@("material-dark")" />
 </head>
@@ -32,6 +33,8 @@
 
     <script src="_framework/blazor.server.js"></script>
     <script src="js/jwt/setJwt.js"></script>
+    <script src="js/jwt/deleteJwt.js"></script>
+    <script src="js/jwt/getJwt.js"></script>
     <script src="_content/Radzen.Blazor/Radzen.Blazor.js?v=@(typeof(Radzen.Colors).Assembly.GetName().Version)"></script>
 </body>
 </html>

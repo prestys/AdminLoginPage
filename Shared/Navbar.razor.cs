@@ -1,30 +1,33 @@
 ﻿using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.JSInterop;
 using ParagonID.InternalSystem.Helpers;
-using Radzen;
-using Radzen.Blazor;
+using ParagonID.InternalSystem.Models;
 
-namespace ParagonID.InternalSystem.Pages.Admin
+namespace ParagonID.InternalSystem.Shared
 {
-    public class LoginModel : ComponentBase
+    public class NavbarComponent : ComponentBase
     {
         // [Injections]
-        [Inject] public NotificationService NotificationService { get; set; }
+        [Inject] public NavlinksHelper NavlinksHelper { get; set; }
         [Inject] public NavigationManager NavigationManager { get; set; }
-        [Inject] public JWTHelper JWTHelper { get; set; }
         [Inject] public IJSRuntime JSRuntime { get; set; }
         [Inject] public AuthorisationHelper AuthorisationHelper { get; set; }
         //
 
         // [Properties]
-        public string Email { get; set; }
-        public string Password { get; set; }
+        public IList<Navlink> Navlinks { get; set; }
         //
 
         // [Fields]
-        public bool Authenticated = false;
+        public string ActivePath = string.Empty;
         //
+
+        protected override async Task OnInitializedAsync()
+        {
+            Navlinks = await NavlinksHelper.GetNavLinks();
+            GetActivePage();
+            await base.OnInitializedAsync();
+        }
 
         protected override void OnAfterRender(bool firstRender)
         {
@@ -61,44 +64,21 @@ namespace ParagonID.InternalSystem.Pages.Admin
         }
 
         /// <summary>
-        /// Executes the routine for logging in.
+        /// Gets the url path to determine the active page.
         /// </summary>
-        public void LoginRoutine()
+        private void GetActivePage()
         {
-            bool __credentialValidity = CredentialValidation();
-
-            if (__credentialValidity)
-            {
-                CreateJWT();
-                NavigationManager.NavigateTo("/");
-            }
-
-            Authenticated = true;
+            var __uri = new Uri(NavigationManager.Uri);
+            ActivePath = __uri.LocalPath;
         }
 
         /// <summary>
-        /// This validates the credentials that are entered.
+        /// This will logout the user and delet the cookie.
         /// </summary>
-        /// <returns></returns>
-        public bool CredentialValidation()
+        public async void Logout()
         {
-            if (string.IsNullOrWhiteSpace(Email) || string.IsNullOrWhiteSpace(Password))
-            {
-                return false;
-            }
-
-            return true;
-        }
-
-        /// <summary>
-        /// This will execute the JS code that creates the JWT with the relevant credentials.
-        /// </summary>
-        private async void CreateJWT()
-        {
-            string __jwt = JWTHelper.GenerateJwtToken("REPLACE_THIS_WITH_USER_ID");
-            string __expiry = DateTime.UtcNow.AddMonths(1).ToString("R");
-
-            await JSRuntime.InvokeVoidAsync("setJwtCookie", __jwt, __expiry);
+            await JSRuntime.InvokeVoidAsync("deleteJwtCookie");
+            NavigationManager.NavigateTo("/admin/login");
         }
     }
 }

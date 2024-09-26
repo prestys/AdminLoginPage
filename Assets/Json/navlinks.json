@@ -1,0 +1,14 @@
+{
+  "navlinks": [
+    {
+      "name": "Home",
+      "path": "/",
+      "icon": "home"
+    },
+    {
+      "name": "HMI",
+      "path": "/hmi",
+      "icon": "science"
+    }
+  ]
+}

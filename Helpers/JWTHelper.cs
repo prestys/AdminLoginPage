@@ -1,4 +1,6 @@
-﻿using Microsoft.IdentityModel.Tokens;
+﻿using Microsoft.AspNetCore.Components;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.JSInterop;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -7,6 +9,10 @@ namespace ParagonID.InternalSystem.Helpers
 {
     public class JWTHelper
     {
+        // [Injections]
+        [Inject] public IJSRuntime JSRuntime { get; set; }
+        //
+
         /// <summary>
         /// This is the function that creates the JWT.
         /// </summary>

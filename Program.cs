@@ -11,6 +11,8 @@ builder.Services.AddServerSideBlazor();
 builder.Services.AddRazorPages();
 builder.Services.AddScoped<NotificationService>();
 builder.Services.AddSingleton<JWTHelper>();
+builder.Services.AddSingleton<NavlinksHelper>();
+builder.Services.AddSingleton<AuthorisationHelper>();
 builder.Services.AddSingleton<Radzen.ThemeService>();
 
 var app = builder.Build();

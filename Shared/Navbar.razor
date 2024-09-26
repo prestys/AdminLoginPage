@@ -1,0 +1,27 @@
+﻿@inherits NavbarComponent
+@inject NavigationManager NavigationManager
+
+@if(Navlinks != null){
+<div class="navbar-wrapper-inner" style="position: relative; z-index: 99;">
+    <div class="navbar-content">
+        @foreach (var __navlink in Navlinks)
+        {
+            <div class="@(ActivePath == __navlink.Path ? "navbar-navlink navbar-navlink-active" : "navbar-navlink")" @onclick="@(() => NavigationManager.NavigateTo($"{__navlink.Path}"))">
+                <p>@(__navlink.Name)</p>
+                <RadzenIcon Icon="@(__navlink.Icon)"/>
+            </div>
+        }
+    </div>
+
+    <div class="navbar-account">
+        <div class="navbar-navlink-account">
+            <p>ACCOUNT_NAME</p>
+        </div>
+
+        <div class="navbar-navlink-logout" @onclick="@(Logout)">
+            <RadzenIcon Icon="logout"/>
+        </div>
+    </div>
+</div>
+<div class="navbar-wrapper-image"></div>
+}
