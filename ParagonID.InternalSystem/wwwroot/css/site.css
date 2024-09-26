@@ -6,6 +6,12 @@
     --paragon-blue: #0d1d53;
     --paragon-grey: #454545;
     --paragon-boxshadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+    --paragon-gradient: linear-gradient(90deg, var(--paragon-blue) 33%, var(--paragon-red) 66%, var(--paragon-yellow) 100%);
+}
+
+main {
+    width: 100%;
+    overflow-y: hidden;
 }
 
 html, body {
@@ -28,7 +34,7 @@ a, .btn-link {
 }
 
 .content {
-    padding-top: 1.1rem;
+    margin: 16px 0;
 }
 
 .valid.modified:not([type=checkbox]) {

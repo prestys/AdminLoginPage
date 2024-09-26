@@ -81,6 +81,8 @@
     background: linear-gradient(90deg, var(--paragon-blue) 33%, var(--paragon-red) 66%, var(--paragon-yellow) 100%);
     border-radius: 0 0 2px 2px;
     transition: 500ms;
+    display: flex;
+    justify-content: center;
 }
 
 .navbar-navlink:hover::after {

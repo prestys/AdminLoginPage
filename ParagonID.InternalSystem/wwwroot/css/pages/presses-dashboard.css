@@ -1,0 +1,31 @@
+﻿.press-dashboard-wrapper {
+    height: calc(100vh - 32px);
+    display: flex;
+    flex-direction: column;
+}
+
+.press-dashboard-heading {
+    display: flex;
+    position: relative;
+}
+
+.press-dashboard-heading h1 {
+    margin: 0;
+}
+
+.press-dashboard-heading h1::after {
+    content: "";
+    background: var(--paragon-gradient);
+    height: 5px;
+    width: 75%;
+    display: block;
+    border-radius: 50px;
+    margin: 8px 0 0 0;
+}
+
+.press-dashboard-presslist {
+    height: 100%;
+    background-color: var(--paragon-grey);
+    border-radius: 5px;
+    margin: 32px 0 0 0;
+}
