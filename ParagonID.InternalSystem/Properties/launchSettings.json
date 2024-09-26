@@ -6,7 +6,7 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
         "JwtSecretToken": "3005b2e805dbb4bdbf600f64cfd05a0fc17c66f416f4942430c2bfeee6da25b9",
-        "InternalConnectionString": "Server=zippydb;Initial Catalog=BBHull;Persist Security Info=False;Integrated Security=false;MultipleActiveResultSets=True;Encrypt=false;Pooling=true;TrustServerCertificate=true;Connection Timeout=30"
+        "InternalConnectionString": "Server=zippydb;Initial Catalog=BBHULL;Persist Security Info=False;Integrated Security=true;MultipleActiveResultSets=True;Encrypt=false;Pooling=true;TrustServerCertificate=true;Connection Timeout=30;"
       },
       "dotnetRunMessages": true,
       "applicationUrl": "https://localhost:7125;http://localhost:5277"

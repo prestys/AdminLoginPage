@@ -8,7 +8,6 @@ namespace ParagonID.Data.Models;
 
 public partial class MaintenanceDB_PressSpec : BaseEntity
 {
-    public int ID { get; set; }
     public string Press { get; set; }
     public int Stops { get; set; }
     public int Guards { get; set; }

@@ -31,7 +31,6 @@ public partial class Context : DbContext
             entity.ToTable("MaintenanceDB_PressSpec", "dbo");
             entity.Property(e => e.UUID)
             .HasColumnName("ID");
-            entity.Property(e => e.ID);
             entity.Property(e => e.Press);
             entity.Property(e => e.Stops);
             entity.Property(e => e.Guards);

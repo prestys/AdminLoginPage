@@ -11,7 +11,7 @@ namespace ParagonID.Data.Models;
 public interface IBaseEntity
 {
     [Key]
-    Guid UUID { get; set; }
+    int UUID { get; set; }
     Guid ConcurrencyStamp { get; set; }
     DateTime? DateModified { get; set; }
     DateTime DateCreated { get; set; }
@@ -19,7 +19,7 @@ public interface IBaseEntity
 
 public class BaseEntity : IBaseEntity
 {
-    [Key] public Guid UUID { get; set; }
+    [Key] public int UUID { get; set; }
     [NotMapped] public Guid ConcurrencyStamp { get; set; }
     [NotMapped] public DateTime? DateModified { get; set; }
     [NotMapped] public DateTime DateCreated { get; set; }
