@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.34916.146
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ParagonID.InternalSystem", "ParagonID.InternalSystem\ParagonID.InternalSystem.csproj", "{10B4C8CF-8649-4789-A4BA-4A6485B9C3C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParagonID.Data", "ParagonID.Data\ParagonID.Data.csproj", "{803667A7-D1BD-447E-BF8B-D1C1C3478CFB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{10B4C8CF-8649-4789-A4BA-4A6485B9C3C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10B4C8CF-8649-4789-A4BA-4A6485B9C3C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10B4C8CF-8649-4789-A4BA-4A6485B9C3C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10B4C8CF-8649-4789-A4BA-4A6485B9C3C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{803667A7-D1BD-447E-BF8B-D1C1C3478CFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{803667A7-D1BD-447E-BF8B-D1C1C3478CFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{803667A7-D1BD-447E-BF8B-D1C1C3478CFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{803667A7-D1BD-447E-BF8B-D1C1C3478CFB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9E110260-0A6C-4EA2-AA8A-19463CA516E1}
+	EndGlobalSection
+EndGlobal

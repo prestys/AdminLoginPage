@@ -1,0 +1,145 @@
+﻿.page {
+    height: 100vh;
+    position: relative;
+    background: radial-gradient(circle at bottom left, var(--paragon-grey) 75%, #1e1e1e 99%);
+    display: flex;
+}
+
+.navbar-wrapper {
+    width: 15%;
+    margin: 16px;
+    height: calc(100% - 32px);
+    position: relative;
+    padding: 0;
+}
+
+.navbar-wrapper-inner {
+    height: 100%;
+}
+
+.navbar-wrapper-image {
+    background-image: url("../../images/patternback.png");
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-size: contain;
+    opacity: 0.2;
+    z-index: 0;
+}
+
+.navbar-wrapper::after {
+    content: "";
+    height: 5px;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, var(--paragon-blue) 33%, var(--paragon-red) 66%, var(--paragon-yellow) 100%);
+    border-radius: 0 0 2px 2px;
+    transition: 500ms;
+}
+
+.navbar-navlink {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    margin: 0 0 16px 0;
+    border-radius: 5px;
+    background: var(--paragon-grey);
+    position: relative;
+    box-shadow: var(--paragon-boxshadow);
+    transition: 250ms;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.navbar-navlink-active::after {
+    content: "";
+    height: 5px;
+    width: 100% !important;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, var(--paragon-blue) 33%, var(--paragon-red) 66%, var(--paragon-yellow) 100%);
+    border-radius: 0 0 2px 2px;
+    transition: 500ms;
+}
+
+.navbar-navlink::after {
+    content: "";
+    height: 5px;
+    width: 0;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, var(--paragon-blue) 33%, var(--paragon-red) 66%, var(--paragon-yellow) 100%);
+    border-radius: 0 0 2px 2px;
+    transition: 500ms;
+}
+
+.navbar-navlink:hover::after {
+    transition: 500ms;
+    width: 100%;
+}
+
+.navbar-account {
+    display: flex;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+}
+
+.navbar-navlink-account {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 16px;
+    margin: 0 16px 0 0;
+    border-radius: 5px;
+    background: var(--paragon-grey);
+    position: relative;
+    box-shadow: var(--paragon-boxshadow);
+    transition: 250ms;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.navbar-navlink-logout {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    margin: 0;
+    border-radius: 5px;
+    background: var(--paragon-grey);
+    position: relative;
+    box-shadow: var(--paragon-boxshadow);
+    transition: 250ms;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.navbar-navlink-logout::after {
+    content: "";
+    height: 5px;
+    width: 0;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, var(--paragon-blue) 33%, var(--paragon-red) 66%, var(--paragon-yellow) 100%);
+    border-radius: 0 0 2px 2px;
+    transition: 500ms;
+}
+
+.navbar-navlink-logout:hover::after {
+    transition: 500ms;
+    width: 100%;
+}
