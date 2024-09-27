@@ -132,6 +132,7 @@
     justify-content: space-between;
     padding: 8px;
     cursor: pointer;
+    transition: 250ms;
 }
 
 .press-card-dropdown-check p {
@@ -140,4 +141,5 @@
 
 .press-card-dropdown-check:hover {
     background-color: #454545;
+    transition: 250ms;
 }
