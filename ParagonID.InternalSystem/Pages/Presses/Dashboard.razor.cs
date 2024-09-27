@@ -10,9 +10,13 @@ public class DashboardModel : ComponentBase
     [Inject] public DataRetriever DataRetriever { get; set; }
     //
 
+    // [Properties]
+    public IEnumerable<MaintenanceDB_PressSpec> Presses = new List<MaintenanceDB_PressSpec>();
+    //
+
     protected override Task OnInitializedAsync()
     {
-        var __allPresses = DataRetriever.GetAll<MaintenanceDB_PressSpec>();
+        Presses = DataRetriever.GetAll<MaintenanceDB_PressSpec>();
         return base.OnInitializedAsync();
     }
 }

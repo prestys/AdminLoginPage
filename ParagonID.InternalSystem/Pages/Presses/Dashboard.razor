@@ -11,6 +11,15 @@
 
             <div class="press-dashboard-presslist">
 
+                <div class="row">
+                    @foreach (var __press in Presses)
+                    {
+                        <div class="col-md-3">
+                            <p>@__press.Press</p>
+                        </div>
+                    }
+                </div>
+
                 <div class="press-dashboard-presslist-image"/>
             </div>
 
