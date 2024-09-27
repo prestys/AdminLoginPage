@@ -29,14 +29,100 @@
     margin: 32px 0 0 0;
     border-radius: 5px;
     position: relative;
-    box-shadow: var(--paragon-boxshadow)
+    box-shadow: var(--paragon-boxshadow);
+    padding: 16px;
 }
 
-./*press-dashboard-presslist-image {
+.press-card {
+    background-color: var(--paragon-grey);
+    box-shadow: var(--paragon-boxshadow);
+    border-radius: 5px;
+    height: 125px;
+    margin: 0 0 16px 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    justify-content: space-between;
+}
+
+.press-card h1 {
+    font-size: 1.75rem;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.press-card-checks {
+    display: flex;
+}
+
+.press-card-titles p {
+    margin: 0 0 8px 0;
+    font-weight: 100;
+}
+
+.press-card-titles p:last-child {
+    margin: 0;
+}
+
+.press-card-icon {
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 0 16px;
+}
+
+.press-card-icon i {
+    margin: 0 0 8px 0;
+    color: green;
+}
+
+.press-card-icon i:last-child {
+    margin: 0;
+}
+
+.press-dashboard-presslist-image {
     background-image: url("../../images/patternback.png");
     background-size: cover;
     opacity: 0.1;
     width: 100%;
     height: 100%;
-    position: absolute; 
-}*/
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.press-card-dropdown {
+    background: radial-gradient(circle at bottom left, #1e1e1e 75%, var(--paragon-blue) 99%);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px var(--paragon-grey);
+    position: absolute;
+    top: 100%;
+    width: calc(100% - 16px);
+    z-index: 99;
+    border-radius: 0 0 5px 5px;
+    height: 0;
+    overflow: hidden;
+    transition: 500ms;
+}
+
+.press-card::after {
+    content: "";
+    position: absolute;
+    background: var(--paragon-gradient);
+    height: 5px;
+    width: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 9999;
+    transition: 500ms;
+    border-radius: 0 0 5px 5px;
+}
+
+.press-card:hover .press-card-dropdown {
+    height: 100%;
+    transition: 500ms;
+}
+
+.press-card:hover::after {
+    width: 100%;
+    transition: 500ms;
+}
