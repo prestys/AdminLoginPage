@@ -99,7 +99,7 @@
     width: calc(100% - 16px);
     z-index: 99;
     border-radius: 0 0 5px 5px;
-    height: 0;
+    max-height: 0;
     overflow: hidden;
     transition: 500ms;
 }
@@ -118,11 +118,26 @@
 }
 
 .press-card:hover .press-card-dropdown {
-    height: 100%;
-    transition: 500ms;
+    max-height: 1000px;
+    transition: 1000ms;
 }
 
 .press-card:hover::after {
     width: 100%;
     transition: 500ms;
+}
+
+.press-card-dropdown-check {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.press-card-dropdown-check p {
+    margin: 0;  
+}
+
+.press-card-dropdown-check:hover {
+    background-color: #454545;
 }
