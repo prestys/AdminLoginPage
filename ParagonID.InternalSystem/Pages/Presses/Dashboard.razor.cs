@@ -13,18 +13,18 @@ public class DashboardModel : ComponentBase
     //
 
     // [Properties]
-    public IList<Press> Presses = new List<Press>();
+    public IList<Machine> Machines = new List<Machine>();
     //
 
     protected override Task OnInitializedAsync()
     {
         IEnumerable<MaintenanceDB_PressSpec> __machines = DataRetriever.GetAll<MaintenanceDB_PressSpec>();
-        MachineFormat(__machines);
+        MachineSorter(__machines);
 
         return base.OnInitializedAsync();
     }
 
-    private void MachineFormat(IEnumerable<MaintenanceDB_PressSpec> machines)
+    private void MachineSorter(IEnumerable<MaintenanceDB_PressSpec> machines)
     {
         string __pressRegex = @"^p\d{1,2}$";
         DateTime __today = DateTime.Now;
@@ -33,21 +33,25 @@ public class DashboardModel : ComponentBase
 
         foreach (var __machine in machines)
         {
-            Press __newPress = new Press();
+            Machine __newMachine = new Machine();
 
             if (Regex.Match(__machine.Press, __pressRegex, RegexOptions.IgnoreCase).Success)
             {
-                __newPress = FormatPress(__machine, __today, __weekAgo, __monthAgo);
-                __newPress.Name = __machine.Press;
+                __newMachine = FormatPress(__machine, __today, __weekAgo, __monthAgo);
+                __newMachine.Name = __machine.Press;
+            } else
+            {
+                __newMachine = FormatMachines(__machine, __today, __weekAgo, __monthAgo);
+                __newMachine.Name = __machine.Press;
             }
 
-            Presses.Add(__newPress);
+            Machines.Add(__newMachine);
         }
     }
 
-    private Press FormatPress(MaintenanceDB_PressSpec press, DateTime today, DateTime weekAgo, DateTime monthAgo)
+    private Machine FormatPress(MaintenanceDB_PressSpec press, DateTime today, DateTime weekAgo, DateTime monthAgo)
     {
-        Press __newPress = new Press();
+        Machine __newPress = new Machine();
 
         IEnumerable<MaintenanceDB_Daily> __daily = DataRetriever.Get<MaintenanceDB_Daily>(
         f => f.Datecompleted.HasValue &&
@@ -79,6 +83,45 @@ public class DashboardModel : ComponentBase
         if (__monthly.Any())
         {
             __newPress.Monthly = __monthly.First().Datecompleted?.ToString("d")!;
+        }
+
+        return __newPress;
+    }
+
+    private Machine FormatMachines(MaintenanceDB_PressSpec press, DateTime today, DateTime weekAgo, DateTime monthAgo)
+    {
+        Machine __newPress = new Machine();
+
+        IEnumerable<MaintenanceDB_DailyCoater> __daily = DataRetriever.Get<MaintenanceDB_DailyCoater>(
+        f => f.DateCompleted.HasValue &&
+                f.DateCompleted.Value.Date == today.Date &&
+                string.Equals(f.Coater, press.Press, StringComparison.OrdinalIgnoreCase));
+
+        if (__daily.Any())
+        {
+            __newPress.Daily = __daily.First().DateCompleted?.ToString("t")!;
+        }
+
+        IEnumerable<MaintenanceDB_DailyCoater> __weekly = DataRetriever.Get<MaintenanceDB_DailyCoater>(
+            f => f.DateCompleted.HasValue &&
+                    f.DateCompleted.Value.Date >= weekAgo.Date &&
+                    f.DateCompleted.Value.Date <= today.Date &&
+                    string.Equals(f.Coater, press.Press, StringComparison.OrdinalIgnoreCase));
+
+        if (__weekly.Any())
+        {
+            __newPress.Weekly = __weekly.First().DateCompleted?.ToString("d")!;
+        }
+
+        IEnumerable<MaintenanceDB_DailyCoater> __monthly = DataRetriever.Get<MaintenanceDB_DailyCoater>(
+            f => f.DateCompleted.HasValue &&
+                    f.DateCompleted.Value.Date >= monthAgo.Date &&
+                    f.DateCompleted.Value.Date <= today.Date &&
+                    string.Equals(f.Coater, press.Press, StringComparison.OrdinalIgnoreCase));
+
+        if (__monthly.Any())
+        {
+            __newPress.Monthly = __monthly.First().DateCompleted?.ToString("d")!;
         }
 
         return __newPress;

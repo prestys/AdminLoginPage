@@ -1,6 +1,6 @@
 ﻿namespace ParagonID.InternalSystem.Models;
 
-public class Press
+public class Machine
 {
     public string Name { get; set; }
     public string Daily { get; set; }
