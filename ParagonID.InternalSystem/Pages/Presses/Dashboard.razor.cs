@@ -24,6 +24,11 @@ public class DashboardModel : ComponentBase
         return base.OnInitializedAsync();
     }
 
+    /// <summary>
+    /// Takes in a number of machines and directs them to the correct methods whether it be
+    /// for formatting a press or a differnt machine.
+    /// </summary>
+    /// <param name="machines"></param>
     private void MachineSorter(IEnumerable<MaintenanceDB_PressSpec> machines)
     {
         string __pressRegex = @"^p\d{1,2}$";
@@ -49,6 +54,15 @@ public class DashboardModel : ComponentBase
         }
     }
 
+    /// <summary>
+    /// This formats any press that gets passed through into the Machine class
+    /// and returns them.
+    /// </summary>
+    /// <param name="press"></param>
+    /// <param name="today"></param>
+    /// <param name="weekAgo"></param>
+    /// <param name="monthAgo"></param>
+    /// <returns></returns>
     private Machine FormatPress(MaintenanceDB_PressSpec press, DateTime today, DateTime weekAgo, DateTime monthAgo)
     {
         Machine __newPress = new Machine();
@@ -88,6 +102,15 @@ public class DashboardModel : ComponentBase
         return __newPress;
     }
 
+    /// <summary>
+    /// This formats all other machines other than a press into the 
+    /// Machine class.
+    /// </summary>
+    /// <param name="press"></param>
+    /// <param name="today"></param>
+    /// <param name="weekAgo"></param>
+    /// <param name="monthAgo"></param>
+    /// <returns></returns>
     private Machine FormatMachines(MaintenanceDB_PressSpec press, DateTime today, DateTime weekAgo, DateTime monthAgo)
     {
         Machine __newPress = new Machine();
