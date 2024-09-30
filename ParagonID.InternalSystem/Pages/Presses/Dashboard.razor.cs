@@ -10,6 +10,7 @@ public class DashboardModel : ComponentBase
 {
     // [Injections]
     [Inject] public DataRetriever DataRetriever { get; set; }
+    [Inject] public NavigationManager NavigationManager { get; set; }
     //
 
     // [Properties]
@@ -154,5 +155,16 @@ public class DashboardModel : ComponentBase
         }
 
         return __newPress;
+    }
+
+    public void RedirectToPress(string checkType, string pressType, string checkDate = null)
+    {
+        if (checkDate == null) 
+        {
+            NavigationManager.NavigateTo($"/presses/{checkType}/{pressType}?admin=true");
+        } else
+        {
+            NavigationManager.NavigateTo($"/presses/{checkType}/{pressType}?admin=true&date={checkDate}");
+        }
     }
 }

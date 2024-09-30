@@ -2,6 +2,7 @@
 @inherits DashboardModel
 @layout MainLayout
 @using ParagonID.InternalSystem.Assets.Components
+@inject NavigationManager NavigationManager
 
 <div class="container-fluid">
     <div class="row">
@@ -39,7 +40,7 @@
                                 <div class="press-dashboard-presslist-image" />
 
                                 <div class="press-card-dropdown">
-                                    <div class="press-card-dropdown-check">
+                                    <div class="press-card-dropdown-check" @onclick="@(() => RedirectToPress("daily", __press.Name, __press?.Daily!))">
                                         <p>Daily</p>
                                         @if(__press.Daily == null)
                                         {
@@ -50,7 +51,7 @@
                                         }
                                     </div>
 
-                                    <div class="press-card-dropdown-check">
+                                    <div class="press-card-dropdown-check" @onclick="@(() => RedirectToPress("weekly", __press.Name, __press?.Weekly!))">
                                         <p>Weekly</p>
                                         @if (__press.Weekly == null)
                                         {
@@ -62,7 +63,7 @@
                                         }
                                     </div>
 
-                                    <div class="press-card-dropdown-check">
+                                    <div class="press-card-dropdown-check" @onclick="@(() => RedirectToPress("monthly", __press.Name, __press?.Monthly!))">
                                         <p>Monthly</p>
                                         @if (__press.Monthly == null)
                                         {
