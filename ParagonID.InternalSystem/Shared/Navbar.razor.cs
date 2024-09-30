@@ -80,5 +80,11 @@ namespace ParagonID.InternalSystem.Shared
             await JSRuntime.InvokeVoidAsync("deleteJwtCookie");
             NavigationManager.NavigateTo("/admin/login");
         }
+
+        public void NavlinkNavigation(string path)
+        {
+            NavigationManager.NavigateTo($"{path}");
+            ActivePath = path;
+        }
     }
 }
