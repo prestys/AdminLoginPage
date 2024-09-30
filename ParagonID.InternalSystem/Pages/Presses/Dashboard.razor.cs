@@ -14,14 +14,20 @@ public class DashboardModel : ComponentBase
 
     // [Properties]
     public IList<Machine> Machines = new List<Machine>();
+    public bool IsLoading = true;
     //
 
-    protected override Task OnInitializedAsync()
+    protected override Task OnAfterRenderAsync(bool firstRender)
     {
-        IEnumerable<MaintenanceDB_PressSpec> __machines = DataRetriever.GetAll<MaintenanceDB_PressSpec>();
-        MachineSorter(__machines);
+        if (firstRender)
+        {
+            IEnumerable<MaintenanceDB_PressSpec> __machines = DataRetriever.GetAll<MaintenanceDB_PressSpec>();
+            MachineSorter(__machines);
+            IsLoading = false;
+            StateHasChanged();
+        }
 
-        return base.OnInitializedAsync();
+        return base.OnAfterRenderAsync(firstRender);
     }
 
     /// <summary>

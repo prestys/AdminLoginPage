@@ -1,5 +1,6 @@
 ﻿@page "/presses"
 @inherits DashboardModel
+@using ParagonID.InternalSystem.Assets.Components
 
 <div class="container-fluid">
     <div class="row">
@@ -10,6 +11,8 @@
             </div>
 
             <div class="press-dashboard-presslist">
+
+                <SpinningLoad IsLoading="@(IsLoading)"/>
 
                 <div class="row">
                     @foreach (var __press in Machines)
