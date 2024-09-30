@@ -26,9 +26,9 @@
                                     </div>
 
                                     <div class="press-card-icon">
-                                        <RadzenIcon Icon="check_circle" />
-                                        <RadzenIcon Icon="check_circle" />
-                                        <RadzenIcon Icon="check_circle" />
+                                        <RadzenIcon Icon="@(__press.Daily == null ? "cancel" : "check_circle")" Style="@(__press.Daily == null ? "color: red;" : "color: green;")" />
+                                        <RadzenIcon Icon="@(__press.Weekly == null ? "cancel" : "check_circle")" Style="@(__press.Weekly == null ? "color: red;" : "color: green;")" />
+                                        <RadzenIcon Icon="@(__press.Monthly == null ? "cancel" : "check_circle")" Style="@(__press.Monthly == null ? "color: red;" : "color: green;")" />
                                     </div>
                                 </div>
 
@@ -37,17 +37,37 @@
                                 <div class="press-card-dropdown">
                                     <div class="press-card-dropdown-check">
                                         <p>Daily</p>
-                                        <p>Action Needed</p>
+                                        @if(__press.Daily == null)
+                                        {
+                                            <p>Action Needed</p>
+                                        } else
+                                        {
+                                            <p>@__press.Daily</p>
+                                        }
                                     </div>
 
                                     <div class="press-card-dropdown-check">
                                         <p>Weekly</p>
-                                        <p>Action Needed</p>
+                                        @if (__press.Weekly == null)
+                                        {
+                                            <p>Action Needed</p>
+                                        }
+                                        else
+                                        {
+                                            <p>@__press.Weekly</p>
+                                        }
                                     </div>
 
                                     <div class="press-card-dropdown-check">
                                         <p>Monthly</p>
-                                        <p>Action Needed</p>
+                                        @if (__press.Monthly == null)
+                                        {
+                                            <p>Action Needed</p>
+                                        }
+                                        else
+                                        {
+                                            <p>@__press.Monthly</p>
+                                        }
                                     </div>
                                 </div>
                             </div>
