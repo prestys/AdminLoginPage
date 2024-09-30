@@ -1,0 +1,11 @@
+﻿.press-single-block {
+    height: 100%;
+    background: radial-gradient(circle at bottom left, #1e1e1e 75%, var(--paragon-blue) 99%);
+    margin: 32px 0 0 0;
+    border-radius: 5px;
+    position: relative;
+    box-shadow: var(--paragon-boxshadow);
+    padding: 16px;
+    overflow-y: scroll;
+    border: 2px solid #1e1e1e;
+}

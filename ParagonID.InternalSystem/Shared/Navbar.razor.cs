@@ -59,7 +59,13 @@ namespace ParagonID.InternalSystem.Shared
             }
             else
             {
-                NavigationManager.NavigateTo("/admin/login");
+                var __uri = new Uri(NavigationManager.Uri);
+                string __path = __uri.LocalPath;
+
+                if (!(__path.Contains("presses/daily") || __path.Contains("presses/weekly") || __path.Contains("presses/monthly")))
+                {
+                    NavigationManager.NavigateTo("/admin/login");
+                }
             }
         }
 

@@ -1,4 +1,20 @@
 ﻿@page "/presses/daily/{press}"
 @inherits DailyModel
 
-<p>@Press</p>
+<LayoutView Layout="@Layout">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="press-dashboard-wrapper">
+                <div class="press-dashboard-heading">
+                    <h1>@(Press.ToUpper())</h1>
+                </div>
+
+                <div class="press-single-block">
+                    <div class="row">
+                        <!-- Add your content here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</LayoutView>
