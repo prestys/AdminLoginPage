@@ -49,6 +49,10 @@ public class DailyModel : ComponentBase
                 RetrieveCheck(Press, __date);
                 IsComplete = true;
                 StateHasChanged();
+            } else
+            {
+                FormatNewDaily();
+                StateHasChanged();
             }
         }
 
@@ -62,8 +66,7 @@ public class DailyModel : ComponentBase
 
         if(__pressRegexResult)
         {
-            ReturnDaily(press, date);
-            DailyCheck.Check1 = false;
+            ReturnDaily(press, date);   
         }
     }
 
@@ -85,5 +88,16 @@ public class DailyModel : ComponentBase
                 DailyCheck = __dailyCheck;
             }
         }
+    }
+
+    private void FormatNewDaily()
+    {
+        DailyCheck.Check1 = false;
+        DailyCheck.Check2 = false;
+        DailyCheck.Check3 = false;
+        DailyCheck.Check4 = false;
+        DailyCheck.Check5 = false;
+        DailyCheck.Check6 = false;
+        DailyCheck.Press = Press;
     }
 }

@@ -12,8 +12,24 @@
                 <div class="press-single-block">
                     <div>
                         <div class="row">
+                            <div class="col-lg-12">
+                                <div class="press-single-employee">
+                                    <div class="press-single-employee-form">
+                                        <RadzenLabel Text="Employee" />
+                                        <RadzenTextBox ReadOnly="@(IsComplete)" @bind-Value="@(DailyCheck.Employee)" />
+                                    </div>
+
+                                    @if(IsComplete)
+                                    {
+                                        <div class="press-single-previous" @onclick="@(() => NavigationManager.NavigateTo("/presses"))">
+                                            <RadzenIcon Icon="arrow_back" />
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+
                             <div class="col-lg-6">
-                                <RadzenCard class="press-check" @onclick="@(() => { if (IsComplete) DailyCheck.Check1 = !DailyCheck.Check1; })">
+                                <RadzenCard class="press-check" @onclick="@(() => { if (!IsComplete) DailyCheck.Check1 = !DailyCheck.Check1; })">
                                     <p>1. Ensure inkin rollers and ink pummps are clean to prevent malfunction.</p>
                                     <div class="press-check-checkbox">
                                         <RadzenCheckBox ReadOnly="@(IsComplete)" TriState="false" @bind-Value="@(DailyCheck.Check1)" />
@@ -22,7 +38,7 @@
                             </div>
 
                             <div class="col-lg-6">
-                                <RadzenCard class="press-check" @onclick="@(() => { if (IsComplete) DailyCheck.Check2 = !DailyCheck.Check2; })">
+                                <RadzenCard class="press-check" @onclick="@(() => { if (!IsComplete) DailyCheck.Check2 = !DailyCheck.Check2; })">
                                     <p>2. Grease gearwheels and plate cylinder mandeels 1st, die cylinder/sheet cylinder when changing to other cylinders, or jobs throughout shift/s.</p>
                                     <div class="press-check-checkbox">
                                         <RadzenCheckBox ReadOnly="@(IsComplete)" TriState="false" @bind-Value="@(DailyCheck.Check2)" />
@@ -31,7 +47,7 @@
                             </div>
 
                             <div class="col-lg-6">
-                                <RadzenCard class="press-check" @onclick="@(() => { if (IsComplete) DailyCheck.Check3 = !DailyCheck.Check3; })">
+                                <RadzenCard class="press-check" @onclick="@(() => { if (!IsComplete) DailyCheck.Check3 = !DailyCheck.Check3; })">
                                     <p>3. Check and clean the nip roller for ink and paper build up.</p>
                                     <div class="press-check-checkbox">
                                         <RadzenCheckBox ReadOnly="@(IsComplete)" TriState="false" @bind-Value="@(DailyCheck.Check3)" />
@@ -40,7 +56,7 @@
                             </div>
 
                             <div class="col-lg-6">
-                                <RadzenCard class="press-check" @onclick="@(() => { if (IsComplete) DailyCheck.Check4 = !DailyCheck.Check4; })">
+                                <RadzenCard class="press-check" @onclick="@(() => { if (!IsComplete) DailyCheck.Check4 = !DailyCheck.Check4; })">
                                     <p>4. The bearers on the tooling must be lubricated with the light oil, whch should be absorbed by the felt pad under the roller.</p>
                                     <div class="press-check-checkbox">
                                         <RadzenCheckBox ReadOnly="@(IsComplete)" TriState="false" @bind-Value="@(DailyCheck.Check4)" />
@@ -49,7 +65,7 @@
                             </div>
 
                             <div class="col-lg-6">
-                                <RadzenCard class="press-check" @onclick="@(() => { if (IsComplete) DailyCheck.Check5 = !DailyCheck.Check5; })">
+                                <RadzenCard class="press-check" @onclick="@(() => { if (!IsComplete) DailyCheck.Check5 = !DailyCheck.Check5; })">
                                     <p>5. Check all the guards are in place and functioning.</p>
                                     <div class="press-check-checkbox">
                                         <RadzenCheckBox ReadOnly="@(IsComplete)" TriState="false" @bind-Value="@(DailyCheck.Check5)" />
@@ -58,7 +74,7 @@
                             </div>
 
                             <div class="col-lg-6">
-                                <RadzenCard class="press-check" @onclick="@(() => { if (IsComplete) DailyCheck.Check6 = !DailyCheck.Check6; })">
+                                <RadzenCard class="press-check" @onclick="@(() => { if (!IsComplete) DailyCheck.Check6 = !DailyCheck.Check6; })">
                                     <p>6. Check all the guard fixings are in place and functioning.</p>
                                     <div class="press-check-checkbox">
                                         <RadzenCheckBox ReadOnly="@(IsComplete)" TriState="false" @bind-Value="@(DailyCheck.Check6)" />
@@ -66,11 +82,27 @@
                                 </RadzenCard>
                             </div>
 
-                            <RadzenCard class="press-warnings">
-                                <p>ANY MISSING FIXINGS OR GUARDS MUST BE REPLACED BEFORE THE MACHINE IS STARTED</p>
-                                <p>Any discrepancies should be reported immediately to the engineering department before any manufacturing commences. Make a Maintenance Request for any issues</p>
-                                <div class="press-check-image"></div>
-                            </RadzenCard>
+                            <div class="col-lg-6">
+                                <div class="press-single-comment">
+                                    <RadzenLabel Text="Comment" />
+                                    <RadzenTextArea ReadOnly="@(IsComplete)" @bind-Value="@(DailyCheck.Comment)" />
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <div class="press-single-submit">
+                                    <RadzenButton Disabled="@(IsComplete)" Text="@(IsComplete ? $"Check Complete - {DailyCheck.Datecompleted}" : "Submit Check")" ButtonStyle="ButtonStyle.Success" />
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <div class="press-warnings">
+                                    <p>ANY MISSING FIXINGS OR GUARDS MUST BE REPLACED BEFORE THE MACHINE IS STARTED</p>
+                                    <p>Any discrepancies should be reported immediately to the engineering department before any manufacturing commences.</p> 
+                                    <p>Make a Maintenance Request for any issues.</p>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
